@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>GOTCHA!</title>
+
+  <link rel="stylesheet" href="dist/stars.css">
+  <link rel="stylesheet" href="main.css">
+  <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+</head>
+<body>
+
+  <div id="header">
+    <div id='stars'></div>
+    <div id='stars2'></div>
+    <div id='stars3'></div>
+    <div id='title'>
+      <span style='font-size: 70px'>
+        Gotcha.
+      </span>
+      <br>
+      <span>
+        Hey{name}, be careful!
+      </span>
+    </div>
+  </div>
+
+  <div id="content">
+    <h3>Hey{name}.</h3>
+    <p>
+      First of all, don't panic. Nobody and nothing is in danger.
+    </p>
+    <p>
+      If this page opened automatically on your computer and you don't know why:
+      it's because of the USB stick that you just plugged in.
+    </p>
+    <p>
+      You may or may not wonder how an USB-Dongle is able to do things with your computer
+      without your permission.
+    </p>
+    <p>
+      TL;DR: You trusted something that you shouldn't. You thought that it would be
+      an USB memory stick with an integrated storage, for example to transfer files to/from it.
+      So you plugged it in and expected a window to open to transfer the files.
+      In fact, you plugged in another keyboard that started to autonomously type
+      and open this website.
+    </p>
+    <p>
+      Of course there is no problem with that, but there could also be other
+      consequences including but not limited to
+    </p>
+      <ul>
+        <li>Execution of malicious code (trojans/virus/bot networks)</li>
+        <li>Theft of personal data (documents, images, everything on your hard drive)</li>
+        <li>Doing things in your name on your pc, for example send an email via your configured address in outlook</li>
+        <li>Access websites in your name, if you either have/had (same session) them open or when your browser fills in credentials automatically</li>
+      </ul>
+    <p>
+      I know it's hard to do, but we should start to question our trust in certain
+      areas, like IT security.
+    </p>
+    <p>This project was realised with ☕ and ❤️ by Lars Bärtschi.</p>
+    <p>
+      Please return the usb stick that you got to the person you got it from
+      since this was only to raise awareness, and you cannot actually save
+      something onto it.</p>
+  </div>
+
+  <script>
+
+    if (window.location.hash) {
+      var name = window.location.hash.substring(1);
+      document.body.innerHTML = document.body.innerHTML.replace(/{name}/g, ' ' + name);
+    } else {
+      document.body.innerHTML = document.body.innerHTML.replace(/{name}/g, '');
+    }
+
+    window.onscroll = function() {
+      var scrollTop = document.documentElement.scrollTop;
+
+      var offset = (scrollTop / 2) - 15;
+
+      var title = document.getElementById("title");
+      var value = "calc(50% + " + offset + "px)";
+
+      title.style.top = value;
+    }
+
+  </script>
+</body>
+</html>
