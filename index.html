@@ -4,6 +4,7 @@
   <title>GOTCHA!</title>
 
   <link rel="stylesheet" href="dist/stars.css">
+  <link rel="stylesheet" href="dist/scrollhint.css">
   <link rel="stylesheet" href="main.css">
   <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
 </head>
@@ -21,6 +22,10 @@
       <span>
         Hey{name}, be careful!
       </span>
+    </div>
+
+    <div class="mouse" id="scrollhint" onclick="scrollIt(4444)">
+      <span></span>
     </div>
   </div>
 
@@ -77,6 +82,12 @@
     window.onscroll = function() {
       var scrollTop = document.documentElement.scrollTop;
 
+      if (scrollTop === 0) {
+        document.getElementById("scrollhint").style.display = "block";
+      } else {
+        document.getElementById("scrollhint").style.display = "none";
+      }
+
       var offset = (scrollTop / 2) - 15;
 
       var title = document.getElementById("title");
@@ -86,5 +97,6 @@
     }
 
   </script>
+  <script src="dist/scroll.js"></script>
 </body>
 </html>
